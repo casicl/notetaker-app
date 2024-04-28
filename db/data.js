@@ -11,15 +11,25 @@ class Data {
     }
 
     writeData(notes) {
+        console.log(notes)
         return writeFile("db/db.json", JSON.stringify(notes))
     }
 
     getNotes() {
         return this.readData().then((notes)=> {
-            console.log(notes)
-            return res.json(notes)
+            
+        const parseNotes=JSON.parse(notes);
+        console.log(parseNotes)
+        return parseNotes;
         })
-        .catch((err)=>res.status(500).json(err))
+       
+    }
+
+    postNotes(noteData) {
+        console.log(noteData);
+        return this.writeData(noteData).then((response)=> {
+        console.log(response);
+        });
     }
 }
 
