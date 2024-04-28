@@ -16,11 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 //send and routes endpoints
-app.get('/', (req, res) => res.send('Navigate to /send or /routes'));
+//app.get('/', (req, res) => res.send('Navigate to /send or /routes'));
 
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/notes.html'))
-);
+// app.get('/notes', (req, res) =>
+//   res.sendFile(path.join(__dirname, 'public/notes.html'))
+// );
 
 // app.get('/api/notes', (req, res) =>
 //   //res.sendFile(path.join(__dirname, '/db/db.json')),
