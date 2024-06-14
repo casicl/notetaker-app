@@ -99,7 +99,7 @@ const handleNoteDelete = (e) => {
     getAndRenderNotes();
     renderActiveNote();
   });
-};
+}
 
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
@@ -129,6 +129,7 @@ const handleRenderBtns = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
+  console.log("rendernoteslist",notes)
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));

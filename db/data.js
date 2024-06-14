@@ -17,11 +17,18 @@ class Data {
 
     getNotes() {
         return this.readData().then((notes)=> {
-            
-        const parseNotes=JSON.parse(notes);
-        console.log(parseNotes)
-        return parseNotes;
-        })
+            console.log("getnotes",notes)
+        let parseNotes;
+        try {
+        parseNotes = [].concat(JSON.parse(notes));
+    }   catch (err) {
+        parseNotes = [];
+       
+        
+    }
+    console.log("finalparse",parseNotes)
+    return parseNotes
+        });
        
     }
 
