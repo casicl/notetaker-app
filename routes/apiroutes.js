@@ -1,18 +1,26 @@
 const router=require("express").Router();
-const data = require("../db/data");
-
+const helpers = require("../db/data");
+const fs = require("fs")
 router.get('/notes', (req, res) => {
   //res.sendFile(path.join(__dirname, '/db/db.json')),
-  console.log(req.body, "here")
-data.getNotes().then((noteData)=> {
-  console.log(noteData, "this is notedata");
+
+helpers.getNotes().then((noteData)=> {
+ console.log("this is notedata",noteData)
   return res.json(noteData);
 })
 });
 
-router.post('/notes', (req,res)=> {
-  console.log(req.body, "router post notes");
-  data.postNotes(req.body);
+router.post('/notes', async (req,res)=> {
+const existingData= await fs.readFile("./db/db.json", "utf8", (err, data)=>{
+  console.log("data from existing file",data)
+  const parsed=JSON.parse(data)
+  parsed.push(req.body)
+  console.log("parsed", parsed);
+  helpers.postNotes(parsed);
+})
+
+
+  
   
 })
 
