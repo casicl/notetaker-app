@@ -1,9 +1,10 @@
 //requirements
 
 const express = require('express');
-const path = require('path');
+// const path = require('path');
 const apiRoutes = require("./routes/apiroutes");
-const fs = require("fs");
+const homeRoutes = require("./routes/homeroutes");
+// const fs = require("fs");
 
 //initialize express
 const app = express();
@@ -21,15 +22,16 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
 });
 
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/notes.html'))
-);
+// app.get('/notes', (req, res) =>
+//   res.sendFile(path.join(__dirname, 'public/notes.html'))
+// );
 
 // app.get('/api/notes', (req, res) =>
 //   //res.sendFile(path.join(__dirname, '/db/db.json')),
 //   data.getNotes()
 // );
 app.use("/api", apiRoutes)
+app.use("/", homeRoutes)
 //post new note
 // app.post('/api/notes', (req, res) => {
 //   console.log("api route hit");
