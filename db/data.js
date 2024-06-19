@@ -27,7 +27,7 @@ class Data {
       return parseNotes;
     });
   }
-//   res.send("hello")
+
   postNotes(noteData) {
     console.log("testing notedata", noteData)
     const newNote = noteData;
