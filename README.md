@@ -2,8 +2,6 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
 An app to store notes. When I enter a note, it is displayed on the left side. 
 
 ## Installation
